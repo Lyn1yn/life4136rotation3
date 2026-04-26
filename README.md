@@ -24,9 +24,24 @@ conda create -n gwas_env -c bioconda -c conda-forge plink=1.90b6.26
 ```
 The freezed python package list is under `requirements` folder.
 
-## Input data
+## Raw input data
 
-<!-- Fill this section later. -->
+The raw input data consisted of paired-end whole-genome sequencing FASTQ files from dog samples. All files were compressed FASTQ files with the `.fastq.gz` extension.
+
+The input directory contained 230 FASTQ files in total, corresponding to 115 paired-end sequencing samples. For each sample, two files were provided:
+
+- `*_1.fastq.gz`: forward reads (Read 1)
+- `*_2.fastq.gz`: reverse reads (Read 2)
+
+Example input files:
+
+```text
+SRR1105792_1.fastq.gz
+SRR1105792_2.fastq.gz
+SRR1122359_1.fastq.gz
+SRR1122359_2.fastq.gz
+SRR1124049_1.fastq.gz
+SRR1124049_2.fastq.gz
 
 ## Usage
 
@@ -263,5 +278,3 @@ Main output:
 ## Notes
 
 - The scripts use absolute paths from the HPC working directory. These paths should be updated if the repository is run in a different environment.
-- SLURM array jobs are used for sample-level and chromosome-level parallelisation.
-- `set -eo pipefail` is used in most scripts to stop the pipeline when a command fails.
